@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/estudiante','EstudentRegController@index');
+
+Route::get('/lista','EstudentListController@index');
