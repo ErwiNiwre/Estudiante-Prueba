@@ -17,7 +17,7 @@ class EstudentListController extends Controller
                 ];
         }
 
-        $title='Listado de Estudiantes';
+        $title='Lista de Estudiantes';
 
         return view('estudentList.index', compact('title','users'));
     }
