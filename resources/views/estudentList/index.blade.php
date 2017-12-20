@@ -1,9 +1,11 @@
 @extends('layout')
 @section('content')
-<h1>help</h1>
 
-  <h2>{{ $title }}</h2>
+  <center><h1>{{ $title }}</h1></center>
+  <a href="/registrar">Nuevo Estudiante</a>
+  <button type="button" class="btn btn-warning">Nuevo Estudiante</button>
     <div class="table-responsive">
+      {{-- {{ $estudiantes }} --}}
       <table class="table table-striped">
         <thead>
           <tr>
@@ -16,14 +18,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1,001</td>
-            <td>Lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>sit</td>
-            <td>sit</td>
-          </tr>   
+          @foreach ($estudiantes as $estudiante)
+            <tr>
+              <td>{{ $estudiante->ci }}</td>
+              <td>{{ $estudiante->nombre }}</td>
+              <td>{{ $estudiante->apellido }}</td>
+              <td>{{ $estudiante->genero }}</td>
+              <td>{{ $estudiante->fec_nac }}</td>
+              <td><a href="">Modificar</a><br><a href="">Eliminar</a></td>
+              </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

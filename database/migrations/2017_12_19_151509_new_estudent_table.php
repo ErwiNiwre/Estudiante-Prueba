@@ -13,13 +13,14 @@ class NewEstudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('estudent', function (Blueprint $table) {
-            $table->integer('ci');
+        Schema::create('estudents', function (Blueprint $table)
+         {
+            $table->increments('id');
+            $table->unsignedInteger('ci');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('genero');
             $table->date('fec_nac');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

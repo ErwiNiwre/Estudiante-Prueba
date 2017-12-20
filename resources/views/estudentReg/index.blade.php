@@ -1,11 +1,13 @@
 @extends('layout')
 @section('content')
-	<form>
+<center><h1>{{ $title }}</h1></center>
+	<form action="{{ route("/registrar") }} " method="POST">
+		{{ csrf_field() }}
 
 		<div class="row justify-content-center">
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer01">C.I.</label>
-		      	<input type="text" class="form-control is-valid" id="validationServer01" placeholder="C.I." value="">
+		      	<input name="ci" type="text" class="form-control is-valid" id="ci" placeholder="C.I." value="">
 		    </div>
 		    <div class="col-6 col-sm-3">
 		      
@@ -15,11 +17,11 @@
 		  <div class="row justify-content-center">
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer01">Nombres</label>
-		      	<input type="text" class="form-control is-valid" id="validationServer01" placeholder="Nombres" value="">
+		      	<input name="nombre" type="text" class="form-control is-valid" id="nombre" placeholder="Nombres" value="">
 		    </div>
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer02">Apellidos</label>
-		      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Apellidos" value="">
+		      <input name="apellido" type="text" class="form-control is-valid" id="apellido" placeholder="Apellidos" value="">
 		    </div>
 		  </div>
 		  <div class="row justify-content-center">
@@ -27,17 +29,16 @@
 		      <label for="validationServer04">Genero</label>
 		      <br>
 		      <label class="form-check-label">
-			    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Femenino"> Femenino
+			    <input name="genero" class="form-check-input" type="radio" id="genero" value="Femenino"> Femenino
 			  </label>
 			  <label class="form-check-label">
-			    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Masculino"> Masculino
+			    <input name="genero" class="form-check-input" type="radio" id="genero" value="Masculino"> Masculino
 			  </label>
 		    </div>
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer03">Fecha Nacimiento</label>
-		      <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Dirección">
+		      <input name="fec_nac" type="text" class="form-control is-invalid" id="fec_nac" placeholder="Fecha Nacimiento">
 		    </div>
-		    
 		  </div>
 	 <br>
 	  	<div align="center">

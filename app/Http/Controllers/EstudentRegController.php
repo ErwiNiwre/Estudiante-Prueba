@@ -3,32 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Estudent;
 
 class EstudentRegController extends Controller
 {
     //
-    public function index()
+
+    public function crear()
     {
-        if (Request()->has('empty')) {
-            $users=[];
-        }else{
-             $users=[
-                'Joel', 'Ellie', 'Tess', 'Tommy', 'Bill',
-                ];
-        }
-
-        $title='Listado de Estudiantes';
-
-        return view('estudentReg.index', compact('title','users'));
+        $title='Registro de Estudiantes';
+        return view('estudentReg.index', compact('title'));
     }
 
-    public function show($id)
+    public function lista()
     {
-        return view('estudentReg.show', compact('id'));
+        $title='Lista de Estudiantes';
+        //$estudent =new Estudent;
+        $estudiantes=Estudent::all();
+        return view('estudentList.index', compact('title','estudiantes'));
+        // return 'index';
     }
 
-    public function create()
+    public function inserta(Request $request)
     {
-        return 'Crear nuevo usuario';
+        $title='Registro de Estudiantes';
+        $estudiantes= new Estudent;
+
+        $estudiantes->ci=$request->ci;
+        $estudiantes->nombre=$request->nombre;
+        $estudiantes->apellido=$request->apellido;
+        $estudiantes->genero=$request->genero;
+        $estudiantes->fec_nac=$request->fec_nac;
+
+        $estudiantes->save();
+        // return $request->all();
+
+        return redirect('/lista');
     }
+
+    public function elimina()
+    {
+        $estudiantes = Estudent::where($estudiantes->ci=ci);
+
+        $estudiantes->delete();
+    }
+
+    public function modifica()
+    {
+        $estudiantes = Estudent::where($estudiantes->ci=ci);
+
+        $request->nombre=$estudiantes->nombre;
+        $request->apellido=$estudiantes->apellido;
+        $request->genero=$estudiantes->genero;
+        $request->fec_nac=$estudiantes->fec_nac;
+
+        $estudiantes->save();
+        return redirect('/lista');
+    }
+
 }
