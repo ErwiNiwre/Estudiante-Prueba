@@ -23,4 +23,4 @@ Route::post('/registrar', ['as'=>'/registrar','uses'=>'EstudentRegController@ins
 
 Route::post('/elimina', ['as'=>'/elimina','uses'=>'EstudentRegController@elimina']);
 
-Route::post('/modifica', ['as'=>'/modifica','uses'=>'EstudentRegController@modifica']);
+Route::get('/modifica', ['as'=>'/modifica','uses'=>'EstudentRegController@modifica']);
