@@ -41,24 +41,37 @@ class EstudentRegController extends Controller
         return redirect('/lista');
     }
 
-    public function elimina()
+    public function elimina($id)
     {
-        $estudiantes = Estudent::where($estudiantes->ci=ci);
+        $title='Lista de Estudiantes';
+        $estudiantes = Estudent::where('id'.$id)->first();
 
         $estudiantes->delete();
+        return redirect('/lista');
     }
 
-    public function modifica()
+    public function modifica(Request $request)
     {
-        $estudiantes = Estudent::where($estudiantes->ci=ci);
+        $title='Modificar Estudiantes';
+        $estudiantes = Estudent::where('id',$request->id)->first();
 
-        $request->nombre=$estudiantes->nombre;
-        $request->apellido=$estudiantes->apellido;
-        $request->genero=$estudiantes->genero;
-        $request->fec_nac=$estudiantes->fec_nac;
+        // $estudiantes->ci=$request->ci;
+        $estudiantes->nombre=$request->nombre;
+        $estudiantes->apellido=$request->apellido;
+        $estudiantes->genero=$request->genero;
+        $estudiantes->fec_nac=$request->fec_nac;
 
         $estudiantes->save();
         return redirect('/lista');
+    }
+
+    public function estudiante($id)
+    {
+        $title='Modificar Estudiante';
+        $estudiante = Estudent::where('id',$id)->first();
+
+        // return $ci;
+        return view('estudentMod.index', compact('title','estudiante'));
     }
 
 }

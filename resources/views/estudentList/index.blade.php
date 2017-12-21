@@ -25,7 +25,7 @@
               <td>{{ $estudiante->apellido }}</td>
               <td>{{ $estudiante->genero }}</td>
               <td>{{ $estudiante->fec_nac }}</td>
-              <td><a href="">Modificar</a><br><a href="">Eliminar</a></td>
+              <td><a href="/modifica/{{ $estudiante->id }}">Modificar</a><br><a href="/elimina/{{ $estudiante->id }}">Eliminar</a></td>
               </tr>
           @endforeach
         </tbody>
