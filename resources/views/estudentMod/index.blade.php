@@ -5,11 +5,11 @@
 
 		{{ csrf_field() }}
 
-		{{ $estudiante }}
+		{{-- {{ $estudiante }} --}}
 		<div class="row justify-content-center">
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer01">C.I.</label>
-		      	<input name="ci" type="text" class="form-control is-valid" id="ci" placeholder="C.I." value="{{ $estudiante->ci }}">
+		      	<input name="ci" type="text" class="form-control is-valid" id="ci" placeholder="C.I." value="{{ $estudiante->ci }}" readonly="true">
 		    </div>
 		    <div class="col-6 col-sm-3">
 		      <input name="id" type="hidden" id="id" value="{{ $estudiante->id }}">
@@ -50,13 +50,13 @@
 		    </div>
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer03">Fecha Nacimiento</label>
-		      <input name="fec_nac" type="text" class="form-control is-invalid" id="fec_nac" placeholder="Fecha Nacimiento" value="{{ $estudiante->fec_nac }}">
+		      <input name="fec_nac" type="date" class="form-control is-invalid" id="fec_nac" placeholder="Fecha Nacimiento" value="{{ $estudiante->fec_nac }}">
 		    </div>
 		  </div>
 		<br>
 		  	<div align="center">
 			  <button type="submit" class="btn btn-outline-warning">Modificar</button>
-			  <button type="reset" class="btn btn-outline-warning">Cancelar</button>
+			  <button  class="btn btn-outline-warning">Cancelar</button>
 			</div>
 	</form>
 @endsection

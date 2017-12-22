@@ -15,14 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/estudiante','EstudentRegController@crear');
-
+Route::get('/estudiante','EstudentRegController@index');
+Route::get('/registro','EstudentRegController@crear');
 Route::get('/lista','EstudentRegController@lista');
+Route::get('/elimina/{id}', 'EstudentRegController@elimina');
+Route::get('/modifica/{id}', 'EstudentRegController@estudiante');
 
 Route::post('/registrar', ['as'=>'/registrar','uses'=>'EstudentRegController@inserta']);
-
-Route::post('/elimina/{id}','EstudentRegController@elimina');
-
-Route::get('/modifica/{id}', 'EstudentRegController@estudiante');
 Route::post('/modifica', ['as'=>'/modifica','uses'=>'EstudentRegController@modifica']);
 

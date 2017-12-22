@@ -37,7 +37,7 @@
 		    </div>
 		    <div class="col-6 col-sm-3">
 		      <label for="validationServer03">Fecha Nacimiento</label>
-		      <input name="fec_nac" type="text" class="form-control is-invalid" id="fec_nac" placeholder="Fecha Nacimiento">
+		      <input name="fec_nac" type="date" class="form-control is-invalid" id="fec_nac" placeholder="Fecha Nacimiento">
 		    </div>
 		  </div>
 	 <br>

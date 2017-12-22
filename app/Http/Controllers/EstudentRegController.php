@@ -8,6 +8,11 @@ use App\Estudent;
 class EstudentRegController extends Controller
 {
     //
+    public function index()
+    {
+        $title='Estudiantes';
+        return view('estudentReg.blown', compact('title'));
+    }
 
     public function crear()
     {
@@ -20,6 +25,7 @@ class EstudentRegController extends Controller
         $title='Lista de Estudiantes';
         //$estudent =new Estudent;
         $estudiantes=Estudent::all();
+
         return view('estudentList.index', compact('title','estudiantes'));
         // return 'index';
     }
@@ -44,7 +50,7 @@ class EstudentRegController extends Controller
     public function elimina($id)
     {
         $title='Lista de Estudiantes';
-        $estudiantes = Estudent::where('id'.$id)->first();
+        $estudiantes = Estudent::find($id);
 
         $estudiantes->delete();
         return redirect('/lista');

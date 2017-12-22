@@ -2,8 +2,8 @@
 @section('content')
 
   <center><h1>{{ $title }}</h1></center>
-  <a href="/registrar">Nuevo Estudiante</a>
-  <button type="button" class="btn btn-warning">Nuevo Estudiante</button>
+  <a href="/registro">Nuevo Estudiante</a>
+  {{-- <button type="button" class="btn btn-warning">Nuevo Estudiante</button> --}}
     <div class="table-responsive">
       {{-- {{ $estudiantes }} --}}
       <table class="table table-striped">
@@ -25,7 +25,11 @@
               <td>{{ $estudiante->apellido }}</td>
               <td>{{ $estudiante->genero }}</td>
               <td>{{ $estudiante->fec_nac }}</td>
-              <td><a href="/modifica/{{ $estudiante->id }}">Modificar</a><br><a href="/elimina/{{ $estudiante->id }}">Eliminar</a></td>
+              <td>
+                <a href="/modifica/{{ $estudiante->id }}">Modificar</a>
+                <br>
+                <a href="/elimina/{{ $estudiante->id }}">Eliminar</a>
+              </td>
               </tr>
           @endforeach
         </tbody>
