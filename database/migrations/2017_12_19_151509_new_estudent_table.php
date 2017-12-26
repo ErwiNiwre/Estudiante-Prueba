@@ -21,6 +21,7 @@ class NewEstudentTable extends Migration
             $table->string('apellido');
             $table->string('genero');
             $table->date('fec_nac');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
