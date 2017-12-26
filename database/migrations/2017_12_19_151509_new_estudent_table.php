@@ -16,13 +16,13 @@ class NewEstudentTable extends Migration
         Schema::create('estudents', function (Blueprint $table)
          {
             $table->increments('id');
-            $table->unsignedInteger('ci');
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('genero');
-            $table->date('fec_nac');
-            $table->softDeletes();
-            $table->timestamps();
+                $table->integer('ci')->unique()->required();
+                $table->string('nombre')->required();
+                $table->string('apellido')->required();
+                $table->string('genero',['masculino','femenino'])->default('masculino');
+                $table->date('fec_nac');
+                $table->softDeletes();
+                $table->timestamps();
         });
     }
 

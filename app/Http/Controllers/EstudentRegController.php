@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estudent;
 
+// use Illuminate\Http\Requests\CreateEstudenRequest;
+
 class EstudentRegController extends Controller
 {
     //
@@ -30,10 +32,20 @@ class EstudentRegController extends Controller
         // return 'index';
     }
 
+    // public function inserta(CreateEstudenRequest $request)
     public function inserta(Request $request)
     {
         $title='Registro de Estudiantes';
         $estudiantes= new Estudent;
+
+        $v=\Validator::make($request->all(),[
+
+            'ci' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'genero' => 'required',
+            'fec_nac' => 'required',
+        ]);
 
         $estudiantes->ci=$request->ci;
         $estudiantes->nombre=$request->nombre;
