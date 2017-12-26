@@ -47,6 +47,11 @@ class EstudentRegController extends Controller
             'fec_nac' => 'required',
         ]);
 
+        if($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
         $estudiantes->ci=$request->ci;
         $estudiantes->nombre=$request->nombre;
         $estudiantes->apellido=$request->apellido;
